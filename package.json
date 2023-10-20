@@ -1,0 +1,75 @@
+{
+  "name": "react-ui",
+  "private": true,
+  "version": "1.1.0",
+  "type": "module",
+  "main": "dist/lib.js",
+  "module": "dist/lib.js",
+  "exports": {
+    ".": {
+      "import": "./dist/lib.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/lib.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "NODE_ENV=production rollup -c",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/react": "^18.2.31",
+    "@types/react-beautiful-dnd": "^13.1.6",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "node-sass": "^9.0.0",
+    "react": "file:../ui-consumer/node_modules/react",
+    "rollup": "^3.29.4",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-scss": "^4.0.0",
+    "rollup-plugin-visualizer": "^5.9.2",
+    "sass": "^1.69.4",
+    "tslib": "^2.6.2",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  },
+  "peerDependencies": {
+    "react-dom": "18.2.0"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.14",
+    "@mui/lab": "^5.0.0-alpha.149",
+    "@mui/material": "^5.14.14",
+    "@mux/mux-player-react": "^2.0.1",
+    "@pqina/filepond-plugin-image-editor": "^9.0.3",
+    "@pqina/react-pintura": "^9.0.1",
+    "@vgs/collect-js": "^0.6.1",
+    "filepond-plugin-file-validate-size": "^2.2.8",
+    "filepond-plugin-file-validate-type": "^1.2.8",
+    "filepond-plugin-image-preview": "^4.6.11",
+    "prop-types": "^15.8.1",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-easy-crop": "^5.0.2",
+    "react-filepond": "^7.1.2",
+    "react-phone-input-2": "^2.15.1",
+    "react-phone-number-input": "^3.3.7",
+    "react18-input-otp": "^1.1.4",
+    "swiper": "^10.3.1"
+  },
+  "sideEffects": false
+}
