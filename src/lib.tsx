@@ -90,4 +90,4 @@ export * from "./lab/OTPInput";
 export * from "./lab/PhoneNumberInput";
 export * from "./lab/Select";
 export * from "./lab/ImageEditorModal";
-// export * from "./lab/MediaUploadModal";
+export * from "./lab/MediaUploadModal";

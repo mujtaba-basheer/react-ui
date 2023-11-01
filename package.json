@@ -10,15 +10,20 @@
       "import": "./dist/lib.js",
       "require": "./dist/index.cjs",
       "types": "./dist/lib.d.ts"
-    }
+    },
+    "./css": "./dist/styles/style.css",
+    "./css/media-upload": "./dist/styles/MediaUploadModal.css",
+    "./css/phone-input": "./dist/styles/phone_input.css"
   },
   "scripts": {
     "dev": "vite",
-    "build": "NODE_ENV=production rollup -c",
+    "build": "rm -rf dist && NODE_ENV=production rollup -c && npm run build:styles",
+    "build:styles": "node-sass src/styles -o dist/styles --output-style=compressed",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
@@ -34,22 +39,28 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "node-sass": "^9.0.0",
-    "react": "file:../ui-consumer/node_modules/react",
+    "postcss-import": "^15.1.0",
     "rollup": "^3.29.4",
     "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-import-css": "^3.3.5",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-sass": "^1.12.21",
     "rollup-plugin-scss": "^4.0.0",
     "rollup-plugin-visualizer": "^5.9.2",
-    "sass": "^1.69.4",
     "tslib": "^2.6.2",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   },
   "peerDependencies": {
+    "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "dependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/preset-react": "^7.22.15",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.14",
@@ -62,6 +73,7 @@
     "filepond-plugin-file-validate-size": "^2.2.8",
     "filepond-plugin-file-validate-type": "^1.2.8",
     "filepond-plugin-image-preview": "^4.6.11",
+    "process": "^0.11.10",
     "prop-types": "^15.8.1",
     "react-beautiful-dnd": "^13.1.1",
     "react-easy-crop": "^5.0.2",
@@ -69,6 +81,7 @@
     "react-phone-input-2": "^2.15.1",
     "react-phone-number-input": "^3.3.7",
     "react18-input-otp": "^1.1.4",
+    "styled-components": "^6.1.0",
     "swiper": "^10.3.1"
   },
   "sideEffects": false

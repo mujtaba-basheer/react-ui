@@ -1,4 +1,4 @@
-@import 'variables.module.scss';
+@import "./variables.module";
 
 :root {
   --black: $black;
@@ -127,7 +127,7 @@ a {
       text-align: center;
     }
 
-    dl>* {
+    dl > * {
       flex: 0 0 50%;
       margin: 0;
       text-align: center;

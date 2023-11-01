@@ -9,14 +9,14 @@ $lightgray: (
   300: #ebeff4,
   400: #e5eaf1,
   500: #e0e5eb,
-  600: #c7cbd1
+  600: #c7cbd1,
 );
 $darkgray: (
   100: #6f6f6f,
   200: #565656,
   300: #3d3d3d,
   400: #1f1f1f,
-  500: #141414
+  500: #141414,
 );
 $breakpoints: (
   xs: 0,
@@ -28,6 +28,7 @@ $breakpoints: (
 );
 
 :export {
+  main: $black;
   black: $black;
   white: $white;
   gray: $gray;

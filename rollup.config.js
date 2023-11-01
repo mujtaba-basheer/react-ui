@@ -7,6 +7,10 @@ import typescript from "@rollup/plugin-typescript";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
+import postcssImport from "postcss-import";
+import scss from "rollup-plugin-sass";
+import css from "rollup-plugin-import-css";
+// import customPlugin from "./plugin.js";
 
 const components = [{ name: "index", entry: "src/lib.tsx" }];
 
@@ -29,30 +33,39 @@ function createComponentConfig(component) {
       },
     ],
     plugins: [
+      // customPlugin(),
       typescript(),
       peerDepsExternal(),
-      resolve(),
       json(),
+      resolve({
+        moduleDirectories: ["node_modules"],
+        extensions: [".mjs", ".js", ".json", ".node", ".css"],
+      }),
       commonjs(),
-      terser(),
       postcss({
-        inject: true,
+        extensions: [".scss", ".css"],
+        plugins: [postcssImport()],
+        // inject: true,
+        extract: !true,
+        minimize: true,
       }),
-      visualizer({
-        open: true,
-      }),
+      // // scss(),
+      terser(),
+      // visualizer({
+      //   // open: true,
+      // }),
     ],
     external: [
       "react",
       "react-dom",
-      /^(!swiper)\.css$/,
-      // /\.scss/,
+      // /^(!swiper)\.css$/,
+      // /\.scss$/,
       // ""
     ],
   };
 }
+
 const rollupConfigs = components.map(createComponentConfig);
-// const rollupConfigs = [];
 
 // rollupConfigs.push({
 //   input: "dist/lib.d.ts",

@@ -1,10 +1,11 @@
-import { ThemeProvider } from '@emotion/react';
-import { Box } from '@mui/material';
-import { loadVGSCollect } from '@vgs/collect-js';
-import { useEffect, useState } from 'react';
-import { colors } from '../../styles/colors';
-import '../../styles/style.scss';
-import { theme } from '../../theme';
+import { ThemeProvider } from "@emotion/react";
+import { Box } from "@mui/material";
+import { loadVGSCollect } from "@vgs/collect-js";
+import { useEffect, useState } from "react";
+import { colors } from "../../styles/colors";
+import "../../styles/style.scss";
+import "./CreditCardInput.scss";
+import { theme } from "../../theme";
 
 export const CreditCardInput = () => {
   const [form, setForm] = useState<any>();
@@ -13,9 +14,9 @@ export const CreditCardInput = () => {
   useEffect(() => {
     const loadForm = async () => {
       const vgsCollect = await loadVGSCollect({
-        vaultId: 'tntnmemz6i7',
-        environment: 'sandbox',
-        version: '2.18.0'
+        vaultId: "tntnmemz6i7",
+        environment: "sandbox",
+        version: "2.18.0",
       }).catch((e) => {
         console.log(e);
       });
@@ -29,47 +30,47 @@ export const CreditCardInput = () => {
       const form = vgsCollect.init((state: any) => console.log(state));
 
       const css = {
-        boxSizing: 'border-box',
-        height: '34px',
-        borderBottom: `1px solid ${colors.lightgray[600]}`
+        boxSizing: "border-box",
+        height: "34px",
+        borderBottom: `1px solid ${colors.lightgray[600]}`,
       };
 
-      form.field('#cc-holder', {
-        type: 'text',
-        name: 'Name on card',
-        placeholder: 'Name on card',
-        validations: ['required'],
-        css: { ...css }
+      form.field("#cc-holder", {
+        type: "text",
+        name: "Name on card",
+        placeholder: "Name on card",
+        validations: ["required"],
+        css: { ...css },
       });
-      form.field('#cc-number', {
-        type: 'card-number',
-        name: 'card_number',
-        placeholder: 'Card number',
+      form.field("#cc-number", {
+        type: "card-number",
+        name: "card_number",
+        placeholder: "Card number",
         showCardIcon: {
-          left: 0
+          left: 0,
         },
-        validations: ['required', 'validCardNumber'],
-        autoComplete: 'cc-number',
+        validations: ["required", "validCardNumber"],
+        autoComplete: "cc-number",
         css: {
-          padding: '0px 0px 0px 40px',
-          ...css
-        }
+          padding: "0px 0px 0px 40px",
+          ...css,
+        },
       });
-      form.field('#cc-cvc', {
-        type: 'card-security-code',
-        name: 'card_cvc',
-        placeholder: 'CVV',
+      form.field("#cc-cvc", {
+        type: "card-security-code",
+        name: "card_cvc",
+        placeholder: "CVV",
         maxLength: 4,
-        validations: ['required', 'validCardSecurityCode'],
-        css
+        validations: ["required", "validCardSecurityCode"],
+        css,
       });
-      form.field('#cc-expiration-date', {
-        type: 'card-expiration-date',
-        name: 'card_exp',
-        placeholder: 'MM / YY',
-        validations: ['required', 'validCardExpirationDate'],
-        autoComplete: 'cc-exp',
-        css
+      form.field("#cc-expiration-date", {
+        type: "card-expiration-date",
+        name: "card_exp",
+        placeholder: "MM / YY",
+        validations: ["required", "validCardExpirationDate"],
+        autoComplete: "cc-exp",
+        css,
       });
       setForm(form);
     }
@@ -81,7 +82,7 @@ export const CreditCardInput = () => {
 
   const submitVGSCollectForm = (e: any) => {
     e.preventDefault();
-    form.submit('/post', {}, (status: any, data: any) => {
+    form.submit("/post", {}, (status: any, data: any) => {
       console.log(JSON.stringify(data, null, 4));
     });
   };
@@ -94,22 +95,22 @@ export const CreditCardInput = () => {
           <Box
             className="single-line-form"
             sx={{
-              display: 'flex',
-              alignItems: 'center',
-              mt: 2
+              display: "flex",
+              alignItems: "center",
+              mt: 2,
             }}
           >
             <Box
               id="cc-number"
               className="form-field"
-              sx={{ width: '70%' }}
+              sx={{ width: "70%" }}
             ></Box>
             <Box
               id="cc-expiration-date"
               className="form-field"
-              sx={{ width: '20%' }}
+              sx={{ width: "20%" }}
             ></Box>
-            <Box id="cc-cvc" className="form-field" sx={{ width: '10%' }}></Box>
+            <Box id="cc-cvc" className="form-field" sx={{ width: "10%" }}></Box>
           </Box>
         </form>
       </Box>

@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 import { colors } from "../styles/colors";
-import variables from "../styles/variables.module.scss";
+import variables from "../styles/_variables.module.scss";
 
 declare module "@mui/material/styles" {
   interface BreakpointOverrides {

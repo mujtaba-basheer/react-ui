@@ -7,9 +7,9 @@ import { theme } from "../../theme";
 // Import Swiper styles
 import { ThemeProvider } from "@emotion/react";
 import MuxPlayer from "@mux/mux-player-react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import "../../../node_modules/swiper/swiper.min.css";
+import "../../../node_modules/swiper/modules/navigation.css";
+import "../../../node_modules/swiper/modules/pagination.css";
 import { PostThumbnail } from "../../elements/PostThumbnail";
 
 interface PostSliderProps {

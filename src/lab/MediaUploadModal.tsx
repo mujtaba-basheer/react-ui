@@ -35,22 +35,12 @@ import * as FilePondPluginFileValidateSize from "filepond-plugin-file-validate-s
 import * as FilePondPluginImageEditor from "@pqina/filepond-plugin-image-editor";
 import * as FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
 import * as FilePondPluginImagePreview from "filepond-plugin-image-preview";
+// import "filepond-plugin-file-poster/dist/filepond-plugin-file-poster.min.css";
 import "../styles/MediaUploadModal.scss";
 
 import { useEffect, useRef, useState } from "react";
 import { FilePond, registerPlugin } from "react-filepond";
 import { PillButton } from "../elements/PillButton";
-
-registerPlugin(
-  FilePondPluginFileValidateType,
-  FilePondPluginImageEditor,
-  FilePondPluginFileValidateSize,
-  FilePondPluginImagePreview,
-  FilePondPluginFileValidateSize
-);
-
-// pintura
-setPlugins(plugin_crop, plugin_finetune, plugin_filter, plugin_annotate);
 
 interface Props {
   /**
@@ -200,6 +190,17 @@ export const MediaUploadModal = ({
   onClose,
   onComplete,
 }: Props) => {
+  registerPlugin(
+    FilePondPluginFileValidateType,
+    FilePondPluginImageEditor,
+    FilePondPluginFileValidateSize,
+    FilePondPluginImagePreview,
+    FilePondPluginFileValidateSize
+  );
+
+  // pintura
+  setPlugins(plugin_crop, plugin_finetune, plugin_filter, plugin_annotate);
+
   const filePondRef = useRef<FilePond>(null);
   const [files, setFiles] = useState<any[]>([]);
   const [fileUrls, setFileUrls] = useState<any[]>([]);
